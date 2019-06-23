@@ -54,8 +54,8 @@ class ViewController: UIViewController {
     }
     
     @IBAction func Eval(_ sender: Any) {
-        let f = functionEval()
-        print(f.eval(s: textView.text!))
+        let nlsolver = nonLinSolver()
+        print(nlsolver.bisection(a: -200, b: 300, equation: textView.text!))
     }
     
 }

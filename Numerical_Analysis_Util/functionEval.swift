@@ -15,4 +15,16 @@ class functionEval {
         return Double(truncating: result)
         //Test
     }
+    func evalX(s:String, x:String)-> Double{
+        var newString = ""
+        for character in s {
+            if character == "X"{
+                newString += x
+            }
+            else {
+                newString += String(character)
+            }
+        }
+        return eval(s: newString)
+    }
 }
