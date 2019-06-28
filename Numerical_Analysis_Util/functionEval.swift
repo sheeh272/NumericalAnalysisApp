@@ -27,4 +27,10 @@ class functionEval {
         }
         return eval(s: newString)
     }
+    func getDeriv(s:String, x:String)-> Double {
+        let h = 0.001
+        let n = evalX(s: s, x: String(Double(x)! + h)) - evalX(s: s, x: String(Double(x)! - h))
+        let d = 2 * h
+        return n/d
+    }
 }
