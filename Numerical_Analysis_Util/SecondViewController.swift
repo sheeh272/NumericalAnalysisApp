@@ -10,10 +10,10 @@ import Foundation
 import UIKit
 
 class SecondViewController: UIViewController {
+    var solver = "unset"
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
     }
 
@@ -22,11 +22,20 @@ class SecondViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func NonlinEqSolver(_ sender: Any) {
+    @IBAction func NonLinearEq(_ sender: Any) {
+        solver = "nonLinearEq"
          performSegue(withIdentifier: "HomeScreenSegue", sender: self)
     }
     
+    @IBAction func Optimization(_ sender: Any) {
+        solver = "Optimization"
+         performSegue(withIdentifier: "HomeScreenSegue", sender: self)
+    }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destVC : ViewController = segue.destination as! ViewController
+        destVC.solver = solver
+    }
     
     /*
     // MARK: - Navigation

@@ -9,7 +9,8 @@
 import UIKit
 
 class ViewController: UIViewController, UITextFieldDelegate {
-
+    var solver = "unset"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -89,8 +90,17 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func Eval(_ sender: Any) {
-        let nlsolver = nonLinSolver()
-        Result.text! = String(nlsolver.NewtonBisectionHybrid(a: Double(a.text!)!, b: Double(b.text!)!, equation: textView.text!))
+        if(solver == "nonLinearEq"){
+            let nlsolver = nonLinSolver()
+            Result.text! = String(nlsolver.NewtonBisectionHybrid(a: Double(a.text!)!, b: Double(b.text!)!, equation: textView.text!))
+        }
+        else if(solver == "Optimization"){
+             let optimizer = optimization()
+             Result.text! = String(optimizer.goldenSectionSearch(a: Double(a.text!)!, b: Double(b.text!)!, equation: textView.text!))
+        }
+        else {
+            print(solver)
+        }
     }
     
     @IBOutlet weak var a: UITextField!
