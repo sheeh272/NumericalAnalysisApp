@@ -29,12 +29,19 @@ class SecondViewController: UIViewController {
     
     @IBAction func Optimization(_ sender: Any) {
         solver = "Optimization"
-         performSegue(withIdentifier: "HomeScreenSegue", sender: self)
+        performSegue(withIdentifier: "HomeScreenSegue", sender: self)
+    }
+    
+    @IBAction func Interpolation(_ sender: Any) {
+        performSegue(withIdentifier: "Interpolation", sender: self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let destVC : ViewController = segue.destination as! ViewController
-        destVC.solver = solver
+        if let destVC : ViewController = segue.destination as? ViewController {
+            destVC.solver = solver
+        }
+        //let destVC = segue.destination
+        //destVC.solver = solver
     }
     
     /*
