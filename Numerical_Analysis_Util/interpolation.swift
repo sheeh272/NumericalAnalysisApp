@@ -19,6 +19,12 @@ class interpolation {
             y.insert(data, at: j)
         }
     }
+    func getXi() ->Double {
+        return x[0]
+    }
+    func getXn() -> Double {
+        return x[x.count-1]
+    }
     
     func printData() ->Void {
         for e in x{
