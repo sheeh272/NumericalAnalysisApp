@@ -94,12 +94,16 @@ class ViewController: UIViewController, UITextFieldDelegate {
             let nlsolver = nonLinSolver()
             Result.text! = String(nlsolver.NewtonBisectionHybrid(a: Double(a.text!)!, b: Double(b.text!)!, equation: textView.text!))
         }
-        else if(solver == "Optimization"){
+        else if(solver == "OptimizationMin"){
              let optimizer = optimization()
-             Result.text! = String(optimizer.goldenSectionSearch(a: Double(a.text!)!, b: Double(b.text!)!, equation: textView.text!))
+             Result.text! = String(optimizer.goldenSectionSearch(a: Double(a.text!)!, b: Double(b.text!)!, equation: textView.text!,m: 0))
+        }
+        else if(solver == "OptimizationMax"){
+             let optimizer = optimization()
+             Result.text! = String(optimizer.goldenSectionSearch(a: Double(a.text!)!, b: Double(b.text!)!, equation: textView.text!,m: 1))
         }
         else {
-            print(solver)
+            print("error")
         }
     }
     

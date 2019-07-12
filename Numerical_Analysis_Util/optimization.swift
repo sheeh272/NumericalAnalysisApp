@@ -9,7 +9,7 @@
 import Foundation
 class optimization {
     //based on algorithm from scientific-computing by michael-t-heath pg 271
-    func goldenSectionSearch(a:Double, b:Double, equation:String) -> Double {
+    func goldenSectionSearch(a:Double, b:Double, equation:String, m: Int) -> Double {
         let f = functionEval()
         let r = (sqrt(5) - 1)/2
         var x1 = a + (1 - r)*(b - a)
@@ -19,8 +19,8 @@ class optimization {
         //to make a and b mutable
         var a = a ; var b = b;
         while((b - a) > 0.0001){
-            if (f1 > f2){
-                //print(a,f1,"a")
+            //m = 1 find max m = 0 min
+            if (((f1 > f2) && m == 0) || ((f1 < f2) && m == 1)){
                 a = x1
                 x1 = x2
                 f1 = f2
@@ -28,7 +28,6 @@ class optimization {
                 f2 = f.evalX(s: equation, x: String(x2))
             }
             else {
-                //print(b,f2,"b")
                 b = x2
                 x2 = x1
                 f2 = f1

@@ -8,7 +8,6 @@
 
 import Foundation
 class interpolation {
-    //var dataArray = [[Double]] ()
     var x: [Double] = []
     var y: [Double] = []
     func addData(i: Int, j: Int, data: Double) -> Void {

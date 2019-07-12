@@ -28,7 +28,12 @@ class SecondViewController: UIViewController {
     }
     
     @IBAction func Optimization(_ sender: Any) {
-        solver = "Optimization"
+        solver = "OptimizationMin"
+        performSegue(withIdentifier: "HomeScreenSegue", sender: self)
+    }
+    
+    @IBAction func OptimizationMax(_ sender: Any) {
+          solver = "OptimizationMax"
         performSegue(withIdentifier: "HomeScreenSegue", sender: self)
     }
     
@@ -40,8 +45,6 @@ class SecondViewController: UIViewController {
         if let destVC : ViewController = segue.destination as? ViewController {
             destVC.solver = solver
         }
-        //let destVC = segue.destination
-        //destVC.solver = solver
     }
     
     /*
