@@ -93,4 +93,8 @@ class ViewControllerThree: UIViewController {
         }
         ImageView.image = img
     }
+    
+    @IBAction func back(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
 }
